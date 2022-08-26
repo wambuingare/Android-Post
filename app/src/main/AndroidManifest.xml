@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MyPost"
         tools:targetApi="31">
         <activity
+            android:name=".CommentActivity"
+            android:exported="false" />
+        <activity
             android:name=".Postman"
             android:exported="false" />
         <activity

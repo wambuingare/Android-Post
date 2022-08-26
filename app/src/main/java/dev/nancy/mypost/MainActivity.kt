@@ -27,13 +27,15 @@ class MainActivity : AppCompatActivity() {
                 call: Call<List<Post>>,
                 response: Response<List<Post>>) {
                 if (response.isSuccessful) {
-                    var posts = response.body()
+                    var post = response.body()
                     Toast.makeText(
-                        baseContext, "${posts!!.size} posts", Toast.LENGTH_LONG).show()
-                    var postsRVAdapter = postsRVAdapter(baseContext, posts)
+                        baseContext, "${post!!.size} posts", Toast.LENGTH_LONG).show()
+                    var postsRVAdapter = postsRVAdapter(baseContext, post)
                     binding.rvPosts.layoutManager = LinearLayoutManager(baseContext)
                     binding.rvPosts.adapter = postsRVAdapter
                 }
+
+
             }
 
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {

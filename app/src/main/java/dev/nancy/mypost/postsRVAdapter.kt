@@ -1,6 +1,7 @@
 package dev.nancy.mypost
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,13 @@ class postsRVAdapter(var context: Context, var posts: List<Post>):
             tvId.text = currentPost.id.toString()
             tvTitle.text = currentPost.title
             tvBody.text = currentPost.body
+            val context = holder.itemView.context
+            holder.binding.cvPosts.setOnClickListener {
+                val intent = Intent(context, CommentActivity::class.java)
+                intent.putExtra("POST_ID",currentPost.id)
+                context.startActivity(intent)
+            }
+
         }
     }
 
